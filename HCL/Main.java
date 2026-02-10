@@ -31,6 +31,10 @@ public class Main {
 
                     System.out.print("Enter Course: ");
                     String course = sc.nextLine();
+                    if (name.isEmpty() || course.isEmpty()) {
+                        System.out.println("Name and Course cannot be empty.");
+                        break;
+                    }
 
                     service.addStudent(new Student(id, name, age, course));
                     break;
