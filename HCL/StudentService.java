@@ -4,6 +4,10 @@ public class StudentService {
     ArrayList<Student> students = new ArrayList<>();
 
     public void addStudent(Student student) {
+        if (isIdExists(student.getId())) {
+            System.out.println("Student with this ID already exists!");
+            return;
+        }
         students.add(student);
         System.out.println("Student added successfully!");
     }
@@ -37,4 +41,14 @@ public class StudentService {
             System.out.println("Student not found.");
         }
     }
+
+    public boolean isIdExists(int id) {
+        for (Student s : students) {
+            if (s.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
